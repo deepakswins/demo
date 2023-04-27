@@ -1,0 +1,82 @@
+pipeline{
+    agent{
+        label "node"
+    }
+    stages{
+        stage("A"){
+            steps{
+                echo "========executing A========"
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========A executed successfully========"
+                }
+                failure{
+                    echo "========A execution failed========"
+                }
+            }
+        }
+        stage("Testing"){
+            steps{
+                echo "========Testing is going ========"
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========Testing executed successfully========"
+                }
+                failure{
+                    echo "========Testing execution failed========"
+                }
+            }
+        }
+        stage("Building"){
+            steps{
+                echo "========Building ========"
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========Build successfully========"
+                }
+                failure{
+                    echo "========Build failed========"
+                }
+            }
+        }
+        stage("Deploy"){
+            steps{
+                echo "========depoloying========"
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========Depolyed successfully========"
+                }
+                failure{
+                    echo "========Deployed failed========"
+                }
+            }
+        }
+    }
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}
