@@ -1,6 +1,8 @@
 pipeline {
     agent {
     label "linux"
+      dir('/home/shubham/') {
+      }
     }      
     environment {
         name = 'Rajat'
