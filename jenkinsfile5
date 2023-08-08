@@ -2,7 +2,8 @@ pipeline {
     agent {
       node {
          label 'linux'
-      }  customWorkspace '/home/shubham/'
+         customWorkspace '/home/shubham/'
+      }
     }
     environment {
         name = 'Rajat'
